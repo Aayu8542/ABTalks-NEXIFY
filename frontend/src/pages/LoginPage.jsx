@@ -13,8 +13,8 @@ export default function LoginPage({ onNavigate }) {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      alert('Mock Login Successful!');
-      onNavigate('landing');
+      alert('Mock Login Successful! Redirecting to dashboard.');
+      onNavigate('dashboard');
     }, 1000);
   };
 
