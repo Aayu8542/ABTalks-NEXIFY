@@ -14,8 +14,9 @@ export default function Dashboard({ onNavigate }) {
 
   return (
     <div className="dashboard-layout">
-      <Sidebar onNavigate={onNavigate} active="dashboard" />
-      <main className="dashboard-main">
+      <div className="dashboard-wrapper">
+        <Sidebar onNavigate={onNavigate} active="dashboard" />
+        <main className="dashboard-main">
         <section className="dashboard-top">
           <div className="dashboard-hero card">
             <div>
@@ -82,15 +83,21 @@ export default function Dashboard({ onNavigate }) {
           <PerformanceChart />
         </section>
       </main>
-    
+      </div>
+
       <style>{`
         .dashboard-layout {
+          min-height: 100vh;
+          background-color: var(--bg-color);
+          margin-top: calc(-1 * var(--navbar-height));
+          padding-top: 0;
+        }
+
+        .dashboard-wrapper {
           display: grid;
           grid-template-columns: 280px 1fr;
-          min-height: 100vh;
           gap: 24px;
-          padding: 24px;
-          background-color: var(--bg-color);
+          padding: 24px 24px 40px;
         }
 
         .dashboard-main {
